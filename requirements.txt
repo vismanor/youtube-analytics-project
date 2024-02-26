@@ -19,3 +19,4 @@ urllib3==2.2.0
 
 pip~=24.0
 isodate~=0.6.1
+python-dotenv~=1.0.1

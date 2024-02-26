@@ -19,6 +19,51 @@ class Channel:
         self.video_count = self.channel['items'][0]['statistics']['videoCount']
         self.view_count = self.channel['items'][0]['statistics']['viewCount']
 
+    def __str__(self):
+        return f'{self.title} ({self.url})'
+
+    def __add__(self, other):
+        """
+            метод для операции сложения
+        """
+        return int(self.subscriber_counter) + int(other.subscriber_counter)
+
+    def __sub__(self, other):
+        """
+            метод для операции вычитания
+        """
+        return int(self.subscriber_counter) - int(other.subscriber_counter)
+
+    def __eq__(self, other):
+        """
+            метод для операции равенства
+        """
+        return int(self.subscriber_counter) == int(other.subscriber_counter)
+
+    def __gt__(self, other):
+        """
+            метод для операции сравнения «больше»
+        """
+        return int(self.subscriber_counter) > int(other.subscriber_counter)
+
+    def __ge__(self, other):
+        """
+            метод для операции сравнения «больше или равно»
+        """
+        return int(self.subscriber_counter) >= int(other.subscriber_counter)
+
+    def __lt__(self, other):
+        """
+            метод для операции сравнения «меньше»
+        """
+        return int(self.subscriber_counter) < int(other.subscriber_counter)
+
+    def __le__(self, other):
+        """
+            метод для операции сравнения «меньше или равно»
+        """
+        return int(self.subscriber_counter) <= int(other.subscriber_counter)
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         print(json.dumps(self.channel, indent=4, ensure_ascii=False))
